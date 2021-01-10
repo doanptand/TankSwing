@@ -1,8 +1,12 @@
 package com.ddona.tank.manager;
 
 import com.ddona.tank.util.Const;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ImageMgr {
@@ -45,6 +49,17 @@ public class ImageMgr {
     }
 
     private ArrayList<Image> getImage(String imgName, int width, int height, int number) {
-        return null;
+        ArrayList<Image> arrImages = new ArrayList<>();
+        try {
+            BufferedImage pImage = ImageIO.read(getClass().getResourceAsStream("/IMAGES/" + imgName + ".png"));
+            BufferedImage image;
+            for (int i = 0; i < number; i++) {
+                image = pImage.getSubimage(0, i*height, width, height);
+                arrImages.add(image);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return arrImages;
     }
 }
