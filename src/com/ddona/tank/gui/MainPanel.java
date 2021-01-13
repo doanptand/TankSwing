@@ -1,7 +1,6 @@
 package com.ddona.tank.gui;
 
 import com.ddona.tank.manager.ImageMgr;
-import com.ddona.tank.manager.MapManager;
 import com.ddona.tank.util.Const;
 
 import javax.swing.*;
