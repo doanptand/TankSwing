@@ -49,12 +49,12 @@ public class MapPanel extends JPanel implements KeyListener {
         Graphics2D g2d = (Graphics2D) g;
         mapManager.drawMap(g2d);
         mBird.draw(g2d);
+        mBulletManager.drawAllBullets(g2d);//should draw below tank
         mTankPlayer.draw(g2d);
-        mBulletManager.drawAllBullets(g2d);
     }
 
     @Override
-    public void keyTped(KeyEvent e) {
+    public void keyTyped(KeyEvent e) {
 
     }
 
@@ -76,8 +76,7 @@ public class MapPanel extends JPanel implements KeyListener {
                 break;
             case KeyEvent.VK_SPACE:
                 System.out.println("add new bullet");
-                mBulletManager.addBullets(new Bullet(Const.TANK_ID, mTankPlayer.getX() + (Const.TANK_SIZE -Const.BULLET_SIZE) / 2,
-                        mTankPlayer.getY()+(Const.TANK_SIZE - Const.BULLET_SIZE)/2, mTankPlayer.getOrient()));
+                mBulletManager.addBullets(mTankPlayer.fireBullet());
                 break;
         }
         repaint();
