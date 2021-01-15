@@ -16,8 +16,7 @@ public class TankPlayer extends Tank {
     @Override
     public void moveTank(int orient) {
         if (this.orient != orient) {
-            this.orient = orient;
-            this.icon = ImageMgr.arrPlayerImages.get(this.orient);
+            setOrient(orient);
         }
         switch (this.orient) {
             case Const.UP_ORIENT:
@@ -33,6 +32,11 @@ public class TankPlayer extends Tank {
                 x += speed;
                 break;
         }
+    }
+
+    @Override
+    public void updateIcon() {
+        this.icon = ImageMgr.arrPlayerImages.get(orient);
     }
 
     public boolean isCanFire() {

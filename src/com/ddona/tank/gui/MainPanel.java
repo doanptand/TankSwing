@@ -9,12 +9,18 @@ import java.awt.*;
 public class MainPanel extends JPanel {
     private GameFrame mGameFrame;
     private MapPanel mMapPanel;
+    private int iconBosses;
 
     public MainPanel(GameFrame frame) {
         this.mGameFrame = frame;
         setLayout(null);
-        mMapPanel = new MapPanel();
+        mMapPanel = new MapPanel(this);
         add(mMapPanel);
+    }
+
+    public void updateBossIcon(int count) {
+        this.iconBosses = count;
+        repaint();
     }
 
     @Override
@@ -34,5 +40,8 @@ public class MainPanel extends JPanel {
                 Const.LEFT_RIGHT_SIZE,
                 Const.MAP_SIZE,
                 null);
+        for (int i = 0; i < iconBosses / 3; i++) {
+            g.drawImage(ImageMgr.imageIconBoss, Const.RIGHT_START_X + 50, Const.PADDING_TOP + 50 * i + 30, 150, 50, null);
+        }
     }
 }

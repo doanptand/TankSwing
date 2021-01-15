@@ -1,5 +1,6 @@
 package com.ddona.tank.gui;
 
+import com.ddona.tank.manager.BossManager;
 import com.ddona.tank.manager.BulletManager;
 import com.ddona.tank.manager.MapManager;
 import com.ddona.tank.model.Bird;
@@ -18,11 +19,14 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
     private Bird mBird;
     private TankPlayer mTankPlayer;
     private BulletManager mBulletManager;
+    private BossManager mBossManager;
+    private final MainPanel mainPanel;
     private boolean isRunning = true;
     private long count = 0;
-    private BitSet bitSet = new BitSet(256);
+    private final BitSet bitSet = new BitSet(256);
 
-    public MapPanel() {
+    public MapPanel(MainPanel mainPanel) {
+        this.mainPanel = mainPanel;
         setBounds((Const.WIDTH_FRAME - Const.MAP_SIZE) / 2,
                 Const.PADDING_TOP,
                 Const.MAP_SIZE,
@@ -45,6 +49,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                 Const.TANK_SIZE);
         mTankPlayer = new TankPlayer();
         mBulletManager = new BulletManager();
+        mBossManager = new BossManager();
     }
 
     @Override
@@ -55,6 +60,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
         mBird.draw(g2d);
         mBulletManager.drawAllBullets(g2d);//should draw below tank
         mTankPlayer.draw(g2d);
+        mBossManager.drawAllBosses(g2d);
     }
 
     @Override
@@ -64,6 +70,9 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_P) {
+            this.isRunning = !isRunning;
+        }
         bitSet.set(e.getKeyCode());
     }
 
@@ -80,7 +89,15 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                 if (count % 80 == 0) {
                     mTankPlayer.setCanFire(true);
                 }
+                if (count == 100000000) {
+                    count = 0;
+                }
+                if (mBossManager.addBosses()) {
+                    mainPanel.updateBossIcon(mBossManager.getBossCount());
+                    repaint();
+                }
                 mBulletManager.moveAllBullets();
+//                mBossManager.moveAllBosses();
                 try {
                     Thread.sleep(7);
                 } catch (InterruptedException e) {

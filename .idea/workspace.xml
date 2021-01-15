@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1338f280-262c-4a17-aed9-dd1e736c7091" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/ddona/tank/manager/BossManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/TankBoss.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/gui/MapPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/gui/MapPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/Tank.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/TankPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/TankPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/gui/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/gui/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/gui/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/gui/MapPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/model/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/Tank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/model/TankPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/TankPlayer.java" afterDir="false" />
@@ -63,6 +66,7 @@
     <option name="width" value="1400" />
     <option name="height" value="728" />
   </component>
+  <component name="ProjectId" id="1n72qedAGOmNnzfqD6VTNO3X5Aa" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -121,7 +125,13 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Caro_No_Graphics" />
@@ -180,6 +190,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -295,12 +306,24 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create image manager" />
     <MESSAGE value="update config" />
     <MESSAGE value="fire bullet when press space" />
     <option name="LAST_COMMIT_MESSAGE" value="fire bullet when press space" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="e.getKeyChar() == KeyEvent.VK_P" language="JAVA" />
+        <watch expression="e.getKeyCode() == KeyEvent.VK_P" language="JAVA" />
+        <watch expression="e.getKeyChar()" language="JAVA" />
+        <watch expression="KeyEvent.VK_P" language="JAVA" />
+        <watch expression="e.getKeyCode()" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/MAPS/map2">

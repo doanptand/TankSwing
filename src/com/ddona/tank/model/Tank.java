@@ -21,6 +21,8 @@ public abstract class Tank extends TankObject {
 
     public abstract void moveTank(int orient);
 
+    public abstract void updateIcon();
+
     public Bullet fireBullet() {
         return new Bullet(Const.TANK_ID, x + (Const.TANK_SIZE - Const.BULLET_SIZE) / 2,
                 y + (Const.TANK_SIZE - Const.BULLET_SIZE) / 2, this.orient);
@@ -36,5 +38,6 @@ public abstract class Tank extends TankObject {
 
     public void setOrient(int orient) {
         this.orient = orient;
+        updateIcon();
     }
 }
