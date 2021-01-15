@@ -38,6 +38,8 @@ public abstract class Tank extends TankObject {
 
     public void setOrient(int orient) {
         this.orient = orient;
+        x = (x + Const.ITEM_SIZE / 2) / Const.ITEM_SIZE * Const.ITEM_SIZE;
+        y = (y + Const.ITEM_SIZE / 2) / Const.ITEM_SIZE * Const.ITEM_SIZE;
         updateIcon();
     }
 }
