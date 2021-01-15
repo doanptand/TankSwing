@@ -27,27 +27,35 @@ public class TankPlayer extends Tank {
         }
         switch (this.orient) {
             case Const.UP_ORIENT:
-                y -= speed;
-                if (checkIntersects()) {
-                    y += speed;
+                if (y > 0) {
+                    y -= speed;
+                    if (checkIntersects()) {
+                        y += speed;
+                    }
                 }
                 break;
             case Const.DOWN_ORIENT:
-                y += speed;
-                if (checkIntersects()) {
-                    y -= speed;
+                if (y < Const.MAP_SIZE - Const.TANK_SIZE) {
+                    y += speed;
+                    if (checkIntersects()) {
+                        y -= speed;
+                    }
                 }
                 break;
             case Const.LEFT_ORIENT:
-                x -= speed;
-                if (checkIntersects()) {
-                    x += speed;
+                if (x > 0) {
+                    x -= speed;
+                    if (checkIntersects()) {
+                        x += speed;
+                    }
                 }
                 break;
             case Const.RIGH_ORIENT:
-                x += speed;
-                if (checkIntersects()) {
-                    x -= speed;
+                if (x < Const.MAP_SIZE - Const.TANK_SIZE) {
+                    x += speed;
+                    if (checkIntersects()) {
+                        x -= speed;
+                    }
                 }
                 break;
         }
