@@ -3,10 +3,10 @@ package com.ddona.tank.model;
 import java.awt.*;
 
 public class TankObject {
-    private int x;
-    private int y;
-    private int width;
-    private int height;
+    protected int x;
+    protected int y;
+    protected int width;
+    protected int height;
     protected Image icon;
 
     public TankObject() {
