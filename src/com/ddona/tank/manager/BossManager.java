@@ -57,4 +57,8 @@ public class BossManager {
     public int getBossCount() {
         return bossCount;
     }
+
+    public List<TankBoss> getBosses() {
+        return mBosses;
+    }
 }

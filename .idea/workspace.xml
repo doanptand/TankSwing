@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1338f280-262c-4a17-aed9-dd1e736c7091" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/ddona/tank/manager/BossManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/TankBoss.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/gui/MapPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/gui/MapPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/Tank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/manager/BossManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/manager/BossManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/TankPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/TankPlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/gui/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/gui/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/gui/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/gui/MapPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/model/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/manager/BossManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/manager/BossManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/model/MapItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/MapItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/model/TankObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/TankObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/model/TankPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/TankPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
