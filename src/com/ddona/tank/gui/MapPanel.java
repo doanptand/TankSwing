@@ -18,6 +18,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
     private TankPlayer mTankPlayer;
     private BulletManager mBulletManager;
     private boolean isRunning = true;
+    private long count = 0;
 
     public MapPanel() {
         setBounds((Const.WIDTH_FRAME - Const.MAP_SIZE) / 2,
@@ -60,7 +61,6 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println("key press:" + e.getKeyChar());
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
                 mTankPlayer.moveTank(Const.UP_ORIENT);
@@ -75,8 +75,10 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                 mTankPlayer.moveTank(Const.RIGH_ORIENT);
                 break;
             case KeyEvent.VK_SPACE:
-                System.out.println("add new bullet");
-                mBulletManager.addBullets(mTankPlayer.fireBullet());
+                if (mTankPlayer.isCanFire()) {
+                    mBulletManager.addBullets(mTankPlayer.fireBullet());
+                    mTankPlayer.setCanFire(false);
+                }
                 break;
         }
         repaint();
@@ -91,6 +93,10 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
     public void run() {
         while (mBird.isAlive()) {
             if (isRunning) {
+                count++;
+                if (count % 80 == 0) {
+                    mTankPlayer.setCanFire(true);
+                }
                 mBulletManager.moveAllBullets();
                 try {
                     Thread.sleep(7);

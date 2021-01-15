@@ -6,6 +6,7 @@ import com.ddona.tank.util.Const;
 public class TankPlayer extends Tank {
 
     private int liveCount = 3;
+    private boolean canFire;
 
     public TankPlayer() {
         super(Const.TANK_ID);
@@ -31,5 +32,13 @@ public class TankPlayer extends Tank {
                 x += Const.STANDARD_SPEED;
                 break;
         }
+    }
+
+    public boolean isCanFire() {
+        return canFire;
+    }
+
+    public void setCanFire(boolean canFire) {
+        this.canFire = canFire;
     }
 }
