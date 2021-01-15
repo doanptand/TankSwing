@@ -1,7 +1,9 @@
 package com.ddona.tank.gui;
 
+import com.ddona.tank.manager.BulletManager;
 import com.ddona.tank.manager.MapManager;
 import com.ddona.tank.model.Bird;
+import com.ddona.tank.model.Bullet;
 import com.ddona.tank.model.TankPlayer;
 import com.ddona.tank.util.Const;
 
@@ -14,6 +16,9 @@ public class MapPanel extends JPanel implements KeyListener {
     private MapManager mapManager;
     private Bird mBird;
     private TankPlayer mTankPlayer;
+    private BulletManager mBulletManager;
+    private boolean isRunning = true;
+    private long count = 0;
 
     public MapPanel() {
         setBounds((Const.WIDTH_FRAME - Const.MAP_SIZE) / 2,
@@ -35,6 +40,7 @@ public class MapPanel extends JPanel implements KeyListener {
                 Const.TANK_SIZE,
                 Const.TANK_SIZE);
         mTankPlayer = new TankPlayer();
+        mBulletManager = new BulletManager();
     }
 
     @Override
@@ -44,10 +50,11 @@ public class MapPanel extends JPanel implements KeyListener {
         mapManager.drawMap(g2d);
         mBird.draw(g2d);
         mTankPlayer.draw(g2d);
+        mBulletManager.drawAllBullets(g2d);
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyTped(KeyEvent e) {
 
     }
 
@@ -66,6 +73,11 @@ public class MapPanel extends JPanel implements KeyListener {
                 break;
             case KeyEvent.VK_RIGHT:
                 mTankPlayer.moveTank(Const.RIGH_ORIENT);
+                break;
+            case KeyEvent.VK_SPACE:
+                System.out.println("add new bullet");
+                mBulletManager.addBullets(new Bullet(Const.TANK_ID, mTankPlayer.getX() + (Const.TANK_SIZE -Const.BULLET_SIZE) / 2,
+                        mTankPlayer.getY()+(Const.TANK_SIZE - Const.BULLET_SIZE)/2, mTankPlayer.getOrient()));
                 break;
         }
         repaint();

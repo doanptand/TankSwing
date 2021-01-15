@@ -12,6 +12,11 @@ public class TankObject {
     public TankObject() {
     }
 
+    public TankObject(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
     public TankObject(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;

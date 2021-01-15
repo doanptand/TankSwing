@@ -41,4 +41,36 @@ public class TankPlayer extends TankObject {
                 break;
         }
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getLiveCount() {
+        return liveCount;
+    }
+
+    public void setLiveCount(int liveCount) {
+        this.liveCount = liveCount;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
+    }
+
+    public int getOrient() {
+        return orient;
+    }
+
+    public void setOrient(int orient) {
+        this.orient = orient;
+    }
 }
