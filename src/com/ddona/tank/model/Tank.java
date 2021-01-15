@@ -6,9 +6,11 @@ import com.ddona.tank.util.Const;
 public abstract class Tank extends TankObject {
     protected int id;
     protected int orient;
+    protected float speed;
 
     public Tank(int id) {
         this.id = id;
+        this.speed = Const.STANDARD_SPEED;
         orient = Const.UP_ORIENT;
         x = 8 * Const.ITEM_SIZE;
         y = 24 * Const.ITEM_SIZE;

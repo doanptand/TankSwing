@@ -11,6 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.BitSet;
 
 public class MapPanel extends JPanel implements KeyListener, Runnable {
     private MapManager mapManager;
@@ -19,6 +20,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
     private BulletManager mBulletManager;
     private boolean isRunning = true;
     private long count = 0;
+    private BitSet bitSet = new BitSet(256);
 
     public MapPanel() {
         setBounds((Const.WIDTH_FRAME - Const.MAP_SIZE) / 2,
@@ -34,6 +36,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
     }
 
     private void initComponents() {
+        bitSet.clear();
         mapManager = new MapManager(1);
         mBird = new Bird(
                 12 * Const.ITEM_SIZE,
@@ -61,32 +64,12 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_UP:
-                mTankPlayer.moveTank(Const.UP_ORIENT);
-                break;
-            case KeyEvent.VK_DOWN:
-                mTankPlayer.moveTank(Const.DOWN_ORIENT);
-                break;
-            case KeyEvent.VK_LEFT:
-                mTankPlayer.moveTank(Const.LEFT_ORIENT);
-                break;
-            case KeyEvent.VK_RIGHT:
-                mTankPlayer.moveTank(Const.RIGH_ORIENT);
-                break;
-            case KeyEvent.VK_SPACE:
-                if (mTankPlayer.isCanFire()) {
-                    mBulletManager.addBullets(mTankPlayer.fireBullet());
-                    mTankPlayer.setCanFire(false);
-                }
-                break;
-        }
-        repaint();
+        bitSet.set(e.getKeyCode());
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        bitSet.clear(e.getKeyCode());
     }
 
     @Override
@@ -103,7 +86,26 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                catchEvent();
                 repaint();
+            }
+        }
+    }
+
+    private void catchEvent() {
+        if (bitSet.get(KeyEvent.VK_UP)) {
+            mTankPlayer.moveTank(Const.UP_ORIENT);
+        } else if (bitSet.get(KeyEvent.VK_DOWN)) {
+            mTankPlayer.moveTank(Const.DOWN_ORIENT);
+        } else if (bitSet.get(KeyEvent.VK_LEFT)) {
+            mTankPlayer.moveTank(Const.LEFT_ORIENT);
+        } else if (bitSet.get(KeyEvent.VK_RIGHT)) {
+            mTankPlayer.moveTank(Const.RIGH_ORIENT);
+        }
+        if (bitSet.get(KeyEvent.VK_SPACE)) {
+            if (mTankPlayer.isCanFire()) {
+                mBulletManager.addBullets(mTankPlayer.fireBullet());
+                mTankPlayer.setCanFire(false);
             }
         }
     }

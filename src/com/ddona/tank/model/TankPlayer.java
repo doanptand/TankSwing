@@ -10,6 +10,7 @@ public class TankPlayer extends Tank {
 
     public TankPlayer() {
         super(Const.TANK_ID);
+        speed = Const.STANDARD_SPEED / 4;
     }
 
     @Override
@@ -20,16 +21,16 @@ public class TankPlayer extends Tank {
         }
         switch (this.orient) {
             case Const.UP_ORIENT:
-                y -= Const.STANDARD_SPEED;
+                y -= speed;
                 break;
             case Const.DOWN_ORIENT:
-                y += Const.STANDARD_SPEED;
+                y += speed;
                 break;
             case Const.LEFT_ORIENT:
-                x -= Const.STANDARD_SPEED;
+                x -= speed;
                 break;
             case Const.RIGH_ORIENT:
-                x += Const.STANDARD_SPEED;
+                x += speed;
                 break;
         }
     }
