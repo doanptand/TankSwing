@@ -12,13 +12,12 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class MapPanel extends JPanel implements KeyListener {
+public class MapPanel extends JPanel implements KeyListener, Runnable {
     private MapManager mapManager;
     private Bird mBird;
     private TankPlayer mTankPlayer;
     private BulletManager mBulletManager;
     private boolean isRunning = true;
-    private long count = 0;
 
     public MapPanel() {
         setBounds((Const.WIDTH_FRAME - Const.MAP_SIZE) / 2,
@@ -30,6 +29,7 @@ public class MapPanel extends JPanel implements KeyListener {
         setFocusable(true);
         addKeyListener(this);
         setLayout(null);
+        new Thread(this).start();
     }
 
     private void initComponents() {
@@ -85,5 +85,20 @@ public class MapPanel extends JPanel implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 
+    }
+
+    @Override
+    public void run() {
+        while (mBird.isAlive()) {
+            if (isRunning) {
+                mBulletManager.moveAllBullets();
+                try {
+                    Thread.sleep(7);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                repaint();
+            }
+        }
     }
 }
