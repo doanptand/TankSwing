@@ -77,7 +77,8 @@ public class BulletManager {
                 if (bullet.getRect().intersects(mBossManager.getBosses().get(i).getRect())) {
                     if (mBossManager.getBosses().get(i).beHit()) {
                         mBossManager.getBosses().remove(i);
-                        //TODO play sound and bum animation
+                        //TODO play bum animation
+                        SoundMgr.play(SoundMgr.killBoss);
                     }
                     if (rd.nextInt(100) > 90) {
                         giftManager.addNewGift(rd.nextInt(650), rd.nextInt(650),  rd.nextInt(2));

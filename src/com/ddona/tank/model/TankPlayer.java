@@ -3,6 +3,7 @@ package com.ddona.tank.model;
 import com.ddona.tank.manager.BossManager;
 import com.ddona.tank.manager.ImageMgr;
 import com.ddona.tank.manager.MapManager;
+import com.ddona.tank.manager.SoundMgr;
 import com.ddona.tank.util.Const;
 
 import java.awt.*;
@@ -62,6 +63,7 @@ public class TankPlayer extends Tank {
 
     @Override
     public boolean beHit() {
+        SoundMgr.play(SoundMgr.newTank);
         liveCount--;
         orient = Const.UP_ORIENT;
         x = 8 * Const.ITEM_SIZE;

@@ -1,5 +1,7 @@
 package com.ddona.tank.gui;
 
+import com.ddona.tank.manager.SoundMgr;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -13,6 +15,7 @@ public class GameFrame extends JFrame {
         setLayout(new CardLayout());
         initComponents();
         setVisible(true);
+        SoundMgr.play(SoundMgr.startGame);
     }
 
     private void initComponents() {
