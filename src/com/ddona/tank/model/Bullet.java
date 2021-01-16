@@ -16,21 +16,38 @@ public class Bullet extends TankObject {
         this.icon = ImageMgr.arrBulletImages.get(orient);
     }
 
-    public void moveBullet() {
+    public boolean moveBullet() {
         switch (this.orient) {
             case Const.UP_ORIENT:
-                y -= Const.STANDARD_SPEED;
-                break;
+                if (y > 0) {
+                    y -= Const.STANDARD_SPEED;
+                    return true;
+                } else{
+                    return false;
+                }
             case Const.DOWN_ORIENT:
-                y += Const.STANDARD_SPEED;
-                break;
+                if (y < Const.MAP_SIZE - Const.BULLET_SIZE) {
+                    y += Const.STANDARD_SPEED;
+                    return true;
+                } else {
+                    return false;
+                }
             case Const.LEFT_ORIENT:
-                x -= Const.STANDARD_SPEED;
-                break;
+                if (x > 0) {
+                    x -= Const.STANDARD_SPEED;
+                    return true;
+                } else {
+                    return false;
+                }
             case Const.RIGH_ORIENT:
-                x += Const.STANDARD_SPEED;
-                break;
+                if (x < Const.MAP_SIZE - Const.BULLET_SIZE) {
+                    x += Const.STANDARD_SPEED;
+                    return true;
+                } else {
+                    return false;
+                }
         }
+        return true;
     }
 
     @Override
@@ -41,5 +58,9 @@ public class Bullet extends TankObject {
                 ", x=" + x +
                 ", y=" + y +
                 '}';
+    }
+
+    public int getId() {
+        return id;
     }
 }

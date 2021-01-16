@@ -22,4 +22,8 @@ public class MapItem extends TankObject {
     public boolean allowTankPass() {
         return type == 0 || type == 3 || type == 5;
     }
+
+    public boolean allowBulletPass() {
+        return type == 0 || type >= 3;
+    }
 }

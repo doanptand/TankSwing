@@ -48,8 +48,8 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                 Const.TANK_SIZE,
                 Const.TANK_SIZE);
         mTankPlayer = new TankPlayer();
-        mBulletManager = new BulletManager();
         mBossManager = new BossManager();
+        mBulletManager = new BulletManager(mTankPlayer, mapManager, mBird, mBossManager);
         mTankPlayer.setReference(mapManager, mBird, mBossManager);
     }
 
@@ -98,15 +98,15 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                     repaint();
                 }
                 mBulletManager.moveAllBullets();
-//                mBossManager.moveAllBosses();
-                try {
-                    Thread.sleep(7);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                catchEvent();
-                repaint();
+                mBossManager.moveAllBosses();
             }
+            try {
+                Thread.sleep(7);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            catchEvent();
+            repaint();
         }
     }
 
