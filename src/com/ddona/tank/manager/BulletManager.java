@@ -89,8 +89,7 @@ public class BulletManager {
             return false;
         } else {
             if(bullet.getRect().intersects(mPlayer.getRect())) {
-                mPlayer.beHit();
-                return true;
+                return mPlayer.beHit();
             }
             return false;
         }
