@@ -78,11 +78,18 @@ public class BulletManager {
     }
 
     private boolean checkWithBullets(Bullet bullet) {
-        if (bullet.getId() == Const.TANK_ID) {
-            return false;
-        } else {
-            return false;
+        //We only check boss's bullet due to the tank player's bullets never intersect with them
+        //only check boss bullet intersect with tank player bullet
+        if (bullet.getId() == Const.BOSS_ID) {
+            for (int i = 0; i < mBullets.size(); i++) {
+                if (mBullets.get(i).getId() == Const.TANK_ID && bullet.getRect().intersects(mBullets.get(i).getRect())) {
+                    mBullets.remove(i);
+                    mBullets.remove(bullet);
+                    return true;
+                }
+            }
         }
+        return false;
     }
 
     private boolean checkWithWall(Bullet bullet) {
