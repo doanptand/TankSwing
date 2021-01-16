@@ -1,9 +1,6 @@
 package com.ddona.tank.gui;
 
-import com.ddona.tank.manager.BossManager;
-import com.ddona.tank.manager.BulletManager;
-import com.ddona.tank.manager.GiftManager;
-import com.ddona.tank.manager.MapManager;
+import com.ddona.tank.manager.*;
 import com.ddona.tank.model.Bird;
 import com.ddona.tank.model.Bullet;
 import com.ddona.tank.model.TankPlayer;
@@ -23,6 +20,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
     private BossManager mBossManager;
     private final MainPanel mainPanel;
     private GiftManager giftManager;
+    private EffectMgr mEffectMgr;
     private boolean isRunning = true;
     private long count = 0;
     private final BitSet bitSet = new BitSet(256);
@@ -50,6 +48,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                 Const.TANK_SIZE,
                 Const.TANK_SIZE);
         mTankPlayer = new TankPlayer();
+        mEffectMgr = new EffectMgr();
         mBossManager = new BossManager(mapManager, mTankPlayer, mBird);
         giftManager = new GiftManager(mTankPlayer, mBossManager);
         mBulletManager = new BulletManager(mTankPlayer, mapManager, mBird, mBossManager, giftManager);
@@ -66,6 +65,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
         mTankPlayer.draw(g2d);
         mBossManager.drawAllBosses(g2d);
         giftManager.drawAllGifts(g2d);
+        mEffectMgr.drawEffect(g2d);
     }
 
     @Override

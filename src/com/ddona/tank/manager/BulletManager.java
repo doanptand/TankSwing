@@ -76,19 +76,22 @@ public class BulletManager {
             for (int i = 0; i < mBossManager.getBosses().size(); i++) {
                 if (bullet.getRect().intersects(mBossManager.getBosses().get(i).getRect())) {
                     if (mBossManager.getBosses().get(i).beHit()) {
+                        EffectMgr.addEffect(new Effect(mBossManager.getBosses().get(i).getX(),
+                                mBossManager.getBosses().get(i).getY()));
                         mBossManager.getBosses().remove(i);
-                        //TODO play bum animation
                         SoundMgr.play(SoundMgr.killBoss);
+
                     }
                     if (rd.nextInt(100) > 90) {
-                        giftManager.addNewGift(rd.nextInt(650), rd.nextInt(650),  rd.nextInt(2));
+                        giftManager.addNewGift(rd.nextInt(650), rd.nextInt(650), rd.nextInt(2));
                     }
                     return true;
                 }
             }
             return false;
         } else {
-            if(bullet.getRect().intersects(mPlayer.getRect())) {
+            if (bullet.getRect().intersects(mPlayer.getRect())) {
+                EffectMgr.addEffect(new Effect(mPlayer.getX(), mPlayer.getY()));
                 return mPlayer.beHit();
             }
             return false;
