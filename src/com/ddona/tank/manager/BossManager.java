@@ -64,4 +64,10 @@ public class BossManager {
     public List<TankBoss> getBosses() {
         return mBosses;
     }
+
+    public void autoFireBullets(BulletManager bulletManager) {
+        for (TankBoss mBoss : mBosses) {
+            bulletManager.addBullets(mBoss.fireBullet());
+        }
+    }
 }

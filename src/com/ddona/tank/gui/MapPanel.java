@@ -90,6 +90,9 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                 if (count % 80 == 0) {
                     mTankPlayer.setCanFire(true);
                 }
+                if (count % 240 == 0) {
+                    mBossManager.autoFireBullets(mBulletManager);
+                }
                 if (count == 100000000) {
                     count = 0;
                 }

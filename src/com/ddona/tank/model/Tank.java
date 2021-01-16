@@ -24,7 +24,7 @@ public abstract class Tank extends TankObject {
     public abstract void updateIcon();
 
     public Bullet fireBullet() {
-        return new Bullet(Const.TANK_ID, x + (Const.TANK_SIZE - Const.BULLET_SIZE) / 2,
+        return new Bullet(id, x + (Const.TANK_SIZE - Const.BULLET_SIZE) / 2,
                 y + (Const.TANK_SIZE - Const.BULLET_SIZE) / 2, this.orient);
     }
 
