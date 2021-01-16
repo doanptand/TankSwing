@@ -108,6 +108,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
             catchEvent();
             repaint();
         }
+        JOptionPane.showMessageDialog(this, "You are loser!");
     }
 
     private void catchEvent() {

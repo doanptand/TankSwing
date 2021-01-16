@@ -104,6 +104,7 @@ public class BulletManager {
     private boolean checkWithBird(Bullet bullet) {
         if (bullet.getRect().intersects(mBird.getRect())) {
             //TODO play bird die animation then stop the game
+            mBird.setAlive(false);
             return true;
         }
         return false;

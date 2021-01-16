@@ -22,5 +22,6 @@ public class Bird extends TankObject{
 
     public void setAlive(boolean alive) {
         isAlive = alive;
+        this.icon = ImageMgr.arrBirdImages.get(1);
     }
 }
