@@ -19,7 +19,6 @@ public abstract class Tank extends TankObject {
         icon = ImageMgr.arrPlayerImages.get(orient);
     }
 
-    public abstract void moveTank(int orient);
     public abstract boolean beHit();
 
     public abstract void updateIcon();

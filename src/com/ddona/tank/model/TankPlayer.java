@@ -20,7 +20,6 @@ public class TankPlayer extends Tank {
         speed = Const.STANDARD_SPEED / 4;
     }
 
-    @Override
     public void moveTank(int orient) {
         if (this.orient != orient) {
             setOrient(orient);

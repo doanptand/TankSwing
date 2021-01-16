@@ -1,6 +1,8 @@
 package com.ddona.tank.manager;
 
+import com.ddona.tank.model.Bird;
 import com.ddona.tank.model.TankBoss;
+import com.ddona.tank.model.TankPlayer;
 import com.ddona.tank.util.Const;
 
 import java.awt.*;
@@ -9,14 +11,20 @@ import java.util.List;
 import java.util.Random;
 
 public class BossManager {
-    private List<TankBoss> mBosses;
+    private final List<TankBoss> mBosses;
+    private final MapManager mMapManager;
+    private final TankPlayer mPlayer;
+    private final Bird mBird;
     private int bossCount;
     private final Random mRandom;
 
-    public BossManager() {
-        mBosses = new ArrayList<>();
-        bossCount = 24;
-        mRandom = new Random();
+    public BossManager(MapManager mapManager, TankPlayer tankPlayer, Bird bird) {
+        this.mMapManager = mapManager;
+        this.mPlayer = tankPlayer;
+        this.mBird = bird;
+        this.mBosses = new ArrayList<>();
+        this.bossCount = 24;
+        this.mRandom = new Random();
     }
 
     public boolean addBosses() {
@@ -45,12 +53,7 @@ public class BossManager {
 
     public void moveAllBosses() {
         for (TankBoss boss : mBosses) {
-            if (mRandom.nextInt(1000) > 996) {
-                boss.moveTank(mRandom.nextInt(4));
-            } else {
-                boss.moveTank(boss.getOrient());
-            }
-
+            boss.moveTank(mMapManager, mPlayer, mBird, this, mRandom.nextInt(1000) > 996);
         }
     }
 
