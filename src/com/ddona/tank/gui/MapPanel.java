@@ -2,6 +2,7 @@ package com.ddona.tank.gui;
 
 import com.ddona.tank.manager.BossManager;
 import com.ddona.tank.manager.BulletManager;
+import com.ddona.tank.manager.GiftManager;
 import com.ddona.tank.manager.MapManager;
 import com.ddona.tank.model.Bird;
 import com.ddona.tank.model.Bullet;
@@ -21,6 +22,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
     private BulletManager mBulletManager;
     private BossManager mBossManager;
     private final MainPanel mainPanel;
+    private GiftManager giftManager;
     private boolean isRunning = true;
     private long count = 0;
     private final BitSet bitSet = new BitSet(256);
@@ -49,7 +51,8 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                 Const.TANK_SIZE);
         mTankPlayer = new TankPlayer();
         mBossManager = new BossManager(mapManager, mTankPlayer, mBird);
-        mBulletManager = new BulletManager(mTankPlayer, mapManager, mBird, mBossManager);
+        giftManager = new GiftManager(mTankPlayer, mBossManager);
+        mBulletManager = new BulletManager(mTankPlayer, mapManager, mBird, mBossManager, giftManager);
         mTankPlayer.setReference(mapManager, mBird, mBossManager);
     }
 
@@ -62,6 +65,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
         mBulletManager.drawAllBullets(g2d);//should draw below tank
         mTankPlayer.draw(g2d);
         mBossManager.drawAllBosses(g2d);
+        giftManager.drawAllGifts(g2d);
     }
 
     @Override
@@ -102,6 +106,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                 }
                 mBulletManager.moveAllBullets();
                 mBossManager.moveAllBosses();
+                giftManager.isTankIntersectWithGift();
             }
             try {
                 Thread.sleep(7);

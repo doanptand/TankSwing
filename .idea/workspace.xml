@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1338f280-262c-4a17-aed9-dd1e736c7091" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/ddona/tank/manager/GiftManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/Gift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/gui/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/gui/MapPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/manager/BossManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/manager/BossManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/model/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/manager/BulletManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/manager/BulletManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,7 +314,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/ddona/tank/manager/BulletManager.java</url>
-          <line>76</line>
+          <line>78</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
