@@ -1,14 +1,12 @@
 package com.ddona.tank.manager;
 
-import com.ddona.tank.model.Bird;
-import com.ddona.tank.model.Bullet;
-import com.ddona.tank.model.MapItem;
-import com.ddona.tank.model.TankPlayer;
+import com.ddona.tank.model.*;
 import com.ddona.tank.util.Const;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class BulletManager {
     private final List<Bullet> mBullets;
@@ -16,13 +14,15 @@ public class BulletManager {
     private MapManager mMapManager;
     private Bird mBird;
     private BossManager mBossManager;
+    private final Random rd;
 
     public BulletManager(TankPlayer mPlayer, MapManager mMapManager, Bird mBird, BossManager bossManager) {
         this.mPlayer = mPlayer;
         this.mMapManager = mMapManager;
         this.mBird = mBird;
         this.mBossManager = bossManager;
-        mBullets = new ArrayList<>();
+        this.mBullets = new ArrayList<>();
+        this.rd = new Random();
     }
 
     public void addBullets(Bullet bullet) {
@@ -71,8 +71,27 @@ public class BulletManager {
 
     private boolean checkWithTank(Bullet bullet) {
         if (bullet.getId() == Const.TANK_ID) {
+            for (int i = 0; i < mBossManager.getBosses().size(); i++) {
+                System.out.println(bullet.getRect().intersects(mBossManager.getBosses().get(i).getRect()));
+                if (bullet.getRect().intersects(mBossManager.getBosses().get(i).getRect())) {
+                    if (mBossManager.getBosses().get(i).beHit()) {
+                        System.out.println("remove boss");
+                        mBossManager.getBosses().remove(i);
+                        //TODO play sound and bum animation
+                    }
+                    if (rd.nextInt(100) > 90) {
+                        System.out.println("draw a gif");
+                        //TODO draw a gift for player
+                    }
+                    return true;
+                }
+            }
             return false;
         } else {
+            if(bullet.getRect().intersects(mPlayer.getRect())) {
+                mPlayer.beHit();
+                return true;
+            }
             return false;
         }
     }

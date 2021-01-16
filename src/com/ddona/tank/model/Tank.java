@@ -20,6 +20,7 @@ public abstract class Tank extends TankObject {
     }
 
     public abstract void moveTank(int orient);
+    public abstract boolean beHit();
 
     public abstract void updateIcon();
 

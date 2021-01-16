@@ -61,6 +61,18 @@ public class TankPlayer extends Tank {
         }
     }
 
+    @Override
+    public boolean beHit() {
+        liveCount--;
+        orient = Const.UP_ORIENT;
+        x = 8 * Const.ITEM_SIZE;
+        y = 24 * Const.ITEM_SIZE;
+        icon = ImageMgr.arrPlayerImages.get(orient);
+
+        //TODO if live count =-0 then game over
+        return false;
+    }
+
     public boolean checkIntersects() {
         int sizeMap = mapManager.getArrMaps().size();
         Rectangle rectItem;

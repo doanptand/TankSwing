@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1338f280-262c-4a17-aed9-dd1e736c7091" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/gui/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/gui/MapPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/manager/BulletManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/manager/BulletManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/model/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/model/TankBoss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/TankBoss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/model/TankPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/TankPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -307,6 +311,15 @@
     <option name="LAST_COMMIT_MESSAGE" value="fire bullet when press space" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ddona/tank/manager/BulletManager.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="e.getKeyChar() == KeyEvent.VK_P" language="JAVA" />

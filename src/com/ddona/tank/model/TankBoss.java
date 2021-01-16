@@ -59,4 +59,9 @@ public class TankBoss extends Tank {
                 break;
         }
     }
+
+    public boolean beHit() {
+        this.hp--;
+        return hp == 0;
+    }
 }

@@ -98,7 +98,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                     repaint();
                 }
                 mBulletManager.moveAllBullets();
-                mBossManager.moveAllBosses();
+                //mBossManager.moveAllBosses();
             }
             try {
                 Thread.sleep(7);
