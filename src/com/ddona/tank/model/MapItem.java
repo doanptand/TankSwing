@@ -18,4 +18,8 @@ public class MapItem extends TankObject {
     public void setType(int type) {
         this.type = type;
     }
+
+    public boolean isAllowTankPass() {
+        return type == 0 || type == 3 || type == 5;
+    }
 }

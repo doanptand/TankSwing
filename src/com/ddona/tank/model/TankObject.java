@@ -67,4 +67,8 @@ public class TankObject {
     public void setIcon(Image icon) {
         this.icon = icon;
     }
+
+    public Rectangle getRect() {
+        return new Rectangle(x, y, width, height);
+    }
 }
