@@ -5,11 +5,11 @@ import com.ddona.tank.util.Const;
 
 import java.awt.*;
 
-public class Bullet extends TankObject{
+public class Bullet extends TankObject {
     private int id;
     private int orient;
 
-    public Bullet(int id,int x, int y, int orient) {
+    public Bullet(int id, int x, int y, int orient) {
         super(x, y);
         this.id = id;
         this.orient = orient;
@@ -18,20 +18,36 @@ public class Bullet extends TankObject{
         this.icon = ImageMgr.arrBulletImages.get(orient);
     }
 
-    public void moveBullet() {
+    public boolean moveBullet() {
         switch (orient) {
             case Const.UP_ORIENT:
-                this.y -= Const.STANDARD_SPEED;
-                break;
+                if (y > 0) {
+                    this.y -= Const.STANDARD_SPEED;
+                    return true;
+                } else {
+                    return false;
+                }
             case Const.DOWN_ORIENT:
-                this.y += Const.STANDARD_SPEED;
-                break;
+                if (y < Const.MAP_SIZE) {
+                    this.y += Const.STANDARD_SPEED;
+                    return true;
+                } else {
+                    return false;
+                }
             case Const.LEFT_ORIENT:
-                this.x -= Const.STANDARD_SPEED;
-                break;
+                if (x > 0) {
+                    this.x -= Const.STANDARD_SPEED;
+                    return true;
+                } else {
+                    return false;
+                }
             case Const.RIGH_ORIENT:
-                this.x += Const.STANDARD_SPEED;
-                break;
+                if (x < Const.MAP_SIZE) {
+                    this.x += Const.STANDARD_SPEED;
+                    return true;
+                }
+                return false;
         }
+        return true;
     }
 }

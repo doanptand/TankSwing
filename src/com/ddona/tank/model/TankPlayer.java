@@ -1,7 +1,10 @@
 package com.ddona.tank.model;
 
 import com.ddona.tank.manager.ImageMgr;
+import com.ddona.tank.manager.MapManager;
 import com.ddona.tank.util.Const;
+
+import java.util.Map;
 
 public class TankPlayer extends TankObject {
     private int id;
@@ -9,6 +12,8 @@ public class TankPlayer extends TankObject {
     private float speed;
     private int orient;
     private boolean canFire;
+    private MapManager mapManager;
+    private Bird bird;
 
     public TankPlayer() {
         id = Const.TANK_ID;
@@ -23,6 +28,11 @@ public class TankPlayer extends TankObject {
         canFire = true;
     }
 
+    public void setReference(MapManager mapManager, Bird bird) {
+        this.mapManager = mapManager;
+        this.bird = bird;
+    }
+
     public void moveTank(int orient) {
         if (this.orient != orient) {
             this.orient = orient;
@@ -32,24 +42,49 @@ public class TankPlayer extends TankObject {
             case Const.UP_ORIENT:
                 if (y > 0) {
                     y -= speed;
+                    if (intersectWithMapAndBird()) {
+                        y += speed;
+                    }
                 }
                 break;
             case Const.DOWN_ORIENT:
                 if (y < Const.MAP_SIZE - Const.TANK_SIZE) {
                     y += speed;
+                    if (intersectWithMapAndBird()) {
+                        y -= speed;
+                    }
                 }
                 break;
             case Const.LEFT_ORIENT:
                 if (x > 0) {
                     x -= speed;
+                    if (intersectWithMapAndBird()) {
+                        x += speed;
+                    }
                 }
                 break;
             case Const.RIGH_ORIENT:
                 if (x < Const.MAP_SIZE - Const.TANK_SIZE) {
                     x += speed;
+                    if (intersectWithMapAndBird()) {
+                        x -= speed;
+                    }
                 }
                 break;
         }
+    }
+
+    private boolean intersectWithMapAndBird() {
+        for (int i = 0; i < mapManager.getArrMaps().size(); i++) {
+            if (getRect().intersects(mapManager.getArrMaps().get(i).getRect())
+                    && !mapManager.getArrMaps().get(i).isAllowTankPass()) {
+                return true;
+            }
+        }
+        if (getRect().intersects(bird.getRect())) {
+            return true;
+        }
+        return false;
     }
 
     public int getId() {
