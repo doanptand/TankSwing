@@ -20,6 +20,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
     private BulletManager mBulletManager;
     private boolean isRunning = true;
     private final BitSet mBitSet = new BitSet(256);
+    private long count;
 
     public MapPanel() {
         setBounds((Const.WIDTH_FRAME - Const.MAP_SIZE) / 2,
@@ -79,6 +80,13 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
     public void run() {
         while (true) {
             if (isRunning && mBird.isAlive()) {
+                count++;
+                if (count % 80 == 0) {
+                    mTankPlayer.setCanFire(true);
+                }
+                if (count == 100000000) {
+                    count = 0;
+                }
                 mBulletManager.moveAllBullets();
             }
             try {
@@ -105,10 +113,10 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
             mTankPlayer.moveTank(Const.RIGH_ORIENT);
         }
         if (mBitSet.get(KeyEvent.VK_SPACE)) {
-            mBulletManager.addBullet(new Bullet(Const.TANK_ID,
-                    mTankPlayer.getX() + (Const.TANK_SIZE - Const.BULLET_SIZE) / 2
-                    , mTankPlayer.getY() + (Const.TANK_SIZE - Const.BULLET_SIZE) / 2,
-                    mTankPlayer.getOrient()));
+            if (mTankPlayer.isCanFire()) {
+                mBulletManager.addBullet(mTankPlayer.fireBullet());
+                mTankPlayer.setCanFire(false);
+            }
         }
     }
 }

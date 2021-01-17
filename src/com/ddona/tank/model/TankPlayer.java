@@ -8,6 +8,7 @@ public class TankPlayer extends TankObject {
     private int liveCount;
     private float speed;
     private int orient;
+    private boolean canFire;
 
     public TankPlayer() {
         id = Const.TANK_ID;
@@ -19,6 +20,7 @@ public class TankPlayer extends TankObject {
         width = Const.TANK_SIZE;
         height = Const.TANK_SIZE;
         icon = ImageMgr.arrPlayerImages.get(orient);
+        canFire = true;
     }
 
     public void moveTank(int orient) {
@@ -72,5 +74,20 @@ public class TankPlayer extends TankObject {
 
     public void setOrient(int orient) {
         this.orient = orient;
+    }
+
+    public boolean isCanFire() {
+        return canFire;
+    }
+
+    public void setCanFire(boolean canFire) {
+        this.canFire = canFire;
+    }
+
+    public Bullet fireBullet() {
+        return new Bullet(Const.TANK_ID,
+                x + (Const.TANK_SIZE - Const.BULLET_SIZE) / 2,
+                y + (Const.TANK_SIZE - Const.BULLET_SIZE) / 2,
+                orient);
     }
 }
