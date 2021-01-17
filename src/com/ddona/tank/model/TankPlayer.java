@@ -13,7 +13,7 @@ public class TankPlayer extends TankObject {
     public TankPlayer() {
         id = Const.TANK_ID;
         liveCount = 3;
-        speed = Const.STANDARD_SPEED;
+        speed = Const.STANDARD_SPEED / 2;
         orient = Const.UP_ORIENT;
         x = 8 * Const.ITEM_SIZE;
         y = 24 * Const.ITEM_SIZE;
@@ -30,16 +30,24 @@ public class TankPlayer extends TankObject {
         }
         switch (this.orient) {
             case Const.UP_ORIENT:
-                y -= Const.STANDARD_SPEED;
+                if (y > 0) {
+                    y -= speed;
+                }
                 break;
             case Const.DOWN_ORIENT:
-                y += Const.STANDARD_SPEED;
+                if (y < Const.MAP_SIZE - Const.TANK_SIZE) {
+                    y += speed;
+                }
                 break;
             case Const.LEFT_ORIENT:
-                x -= Const.STANDARD_SPEED;
+                if (x > 0) {
+                    x -= speed;
+                }
                 break;
             case Const.RIGH_ORIENT:
-                x += Const.STANDARD_SPEED;
+                if (x < Const.MAP_SIZE - Const.TANK_SIZE) {
+                    x += speed;
+                }
                 break;
         }
     }
