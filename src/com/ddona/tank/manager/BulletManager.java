@@ -57,16 +57,17 @@ public class BulletManager {
     }
 
     private boolean checkIntersectWithMap(Bullet bullet) {
+        boolean isIntersect = false;
         for (int i = 0; i < mapManager.getArrMaps().size(); i++) {
             MapItem item = mapManager.getArrMaps().get(i);
             if (item.getRect().intersects(bullet.getRect())
                     && !item.isAllowBulletPass()) {
                 mapManager.getArrMaps().remove(item);
                 mBullets.remove(bullet);
-                return true;
+                isIntersect = true;
             }
         }
-        return false;
+        return isIntersect;
     }
 
     public void drawAllBullets(Graphics2D g2d) {
