@@ -107,4 +107,10 @@ public class Boss extends TankObject {
     public void setHp(int hp) {
         this.hp = hp;
     }
+
+    public boolean beHit() {
+        hp--;
+        updateIcon();
+        return hp == 0;
+    }
 }

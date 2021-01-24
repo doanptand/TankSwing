@@ -48,4 +48,20 @@ public class Bullet extends TankObject {
         }
         return true;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getOrient() {
+        return orient;
+    }
+
+    public void setOrient(int orient) {
+        this.orient = orient;
+    }
 }

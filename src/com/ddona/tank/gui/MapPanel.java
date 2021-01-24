@@ -47,8 +47,8 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                 Const.TANK_SIZE);
         mTankPlayer = new TankPlayer();
         mTankPlayer.setReference(mapManager, mBird);
-        mBulletManager = new BulletManager(mapManager);
         mBossManager = new BossManager();
+        mBulletManager = new BulletManager(mapManager, mBossManager);
         new Thread(this).start();
     }
 

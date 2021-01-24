@@ -43,4 +43,20 @@ public class BossManager {
             mBosses.get(i).moveBoss();
         }
     }
+
+    public List<Boss> getBosses() {
+        return mBosses;
+    }
+
+    public void setBosses(List<Boss> mBosses) {
+        this.mBosses = mBosses;
+    }
+
+    public int getBossCount() {
+        return bossCount;
+    }
+
+    public void setBossCount(int bossCount) {
+        this.bossCount = bossCount;
+    }
 }
