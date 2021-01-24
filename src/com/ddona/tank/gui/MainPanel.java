@@ -14,7 +14,7 @@ public class MainPanel extends JPanel {
     public MainPanel(GameFrame frame) {
         this.mGameFrame = frame;
         setLayout(null);
-        mMapPanel = new MapPanel();
+        mMapPanel = new MapPanel(this);
         add(mMapPanel);
     }
 
@@ -37,6 +37,11 @@ public class MainPanel extends JPanel {
                 null);
 
         drawBossIcon(g2d);
+    }
+
+    public void updateBossCount() {
+        bossCount -= 3;
+        repaint();
     }
 
     private void drawBossIcon(Graphics2D g2d) {

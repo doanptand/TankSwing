@@ -1,5 +1,6 @@
 package com.ddona.tank.gui;
 
+import com.ddona.tank.manager.BossManager;
 import com.ddona.tank.manager.BulletManager;
 import com.ddona.tank.manager.MapManager;
 import com.ddona.tank.model.Bird;
@@ -21,8 +22,11 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
     private boolean isRunning = true;
     private final BitSet mBitSet = new BitSet(256);
     private long count;
+    private BossManager mBossManager;
+    private MainPanel mainPanel;
 
-    public MapPanel() {
+    public MapPanel(MainPanel mainPanel) {
+        this.mainPanel = mainPanel;
         setBounds((Const.WIDTH_FRAME - Const.MAP_SIZE) / 2,
                 Const.PADDING_TOP,
                 Const.MAP_SIZE,
@@ -46,6 +50,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
         mTankPlayer = new TankPlayer();
         mTankPlayer.setReference(mapManager, mBird);
         mBulletManager = new BulletManager(mapManager);
+        mBossManager = new BossManager();
         new Thread(this).start();
     }
 
@@ -57,6 +62,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
         mBird.draw(g2d);
         mBulletManager.drawAllBullets(g2d);
         mTankPlayer.draw(g2d);
+        mBossManager.drawAllBosses(g2d);
     }
 
     @Override
@@ -87,6 +93,10 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                 }
                 if (count == 100000000) {
                     count = 0;
+                }
+                if (mBossManager.addMoreBosses()) {
+                    mainPanel.updateBossCount();
+                    repaint();
                 }
                 mBulletManager.moveAllBullets();
             }
