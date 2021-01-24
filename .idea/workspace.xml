@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="1338f280-262c-4a17-aed9-dd1e736c7091" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/gui/MapPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/gui/MapPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/gui/SettingsPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/gui/SettingsPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/Bird.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/Bird.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/Bullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/MapItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/MapItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/TankObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/TankObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/TankPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TankSwing/com/ddona/tank/model/TankPlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/gui/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/gui/MapPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/manager/BulletManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/manager/BulletManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/model/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/model/MapItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/model/MapItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ddona/tank/gui/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ddona/tank/gui/MainPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
