@@ -37,4 +37,10 @@ public class BossManager {
             mBosses.get(i).draw(g2d);
         }
     }
+
+    public void moveAllBosses() {
+        for (int i = 0; i < mBosses.size(); i++) {
+            mBosses.get(i).moveBoss();
+        }
+    }
 }

@@ -4,8 +4,6 @@ import com.ddona.tank.manager.ImageMgr;
 import com.ddona.tank.manager.MapManager;
 import com.ddona.tank.util.Const;
 
-import java.util.Map;
-
 public class TankPlayer extends TankObject {
     private int id;
     private int liveCount;
@@ -63,7 +61,7 @@ public class TankPlayer extends TankObject {
                     }
                 }
                 break;
-            case Const.RIGH_ORIENT:
+            case Const.RIGHT_ORIENT:
                 if (x < Const.MAP_SIZE - Const.TANK_SIZE) {
                     x += speed;
                     if (intersectWithMapAndBird()) {

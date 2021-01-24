@@ -54,4 +54,8 @@ public class MainPanel extends JPanel {
                     null);
         }
     }
+
+    public void startGame() {
+        mMapPanel.startGame();
+    }
 }

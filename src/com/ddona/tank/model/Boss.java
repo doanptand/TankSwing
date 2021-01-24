@@ -18,7 +18,7 @@ public class Boss extends TankObject {
         this.level = level;
         this.hp = level;
         this.id = Const.BOSS_ID;
-        this.speed = Const.STANDARD_SPEED / 2;
+        this.speed = Const.STANDARD_SPEED / 4;
         this.orient = Const.DOWN_ORIENT;
         updateIcon();
     }
@@ -40,6 +40,31 @@ public class Boss extends TankObject {
             } else {
                 this.icon = ImageMgr.arrBoss31Images.get(orient);
             }
+        }
+    }
+
+    public void moveBoss() {
+        switch (orient) {
+            case Const.UP_ORIENT:
+                if (y > 0) {
+                    y -= speed;
+                }
+                break;
+            case Const.DOWN_ORIENT:
+                if (y < Const.MAP_SIZE - Const.TANK_SIZE) {
+                    this.y += speed;
+                }
+                break;
+            case Const.LEFT_ORIENT:
+                if (x > 0) {
+                    x -= speed;
+                }
+                break;
+            case Const.RIGHT_ORIENT:
+                if (x < Const.MAP_SIZE - Const.TANK_SIZE) {
+                    this.x += speed;
+                }
+                break;
         }
     }
 

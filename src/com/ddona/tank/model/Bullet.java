@@ -3,8 +3,6 @@ package com.ddona.tank.model;
 import com.ddona.tank.manager.ImageMgr;
 import com.ddona.tank.util.Const;
 
-import java.awt.*;
-
 public class Bullet extends TankObject {
     private int id;
     private int orient;
@@ -41,7 +39,7 @@ public class Bullet extends TankObject {
                 } else {
                     return false;
                 }
-            case Const.RIGH_ORIENT:
+            case Const.RIGHT_ORIENT:
                 if (x < Const.MAP_SIZE) {
                     this.x += Const.STANDARD_SPEED;
                     return true;

@@ -4,7 +4,6 @@ import com.ddona.tank.manager.BossManager;
 import com.ddona.tank.manager.BulletManager;
 import com.ddona.tank.manager.MapManager;
 import com.ddona.tank.model.Bird;
-import com.ddona.tank.model.Bullet;
 import com.ddona.tank.model.TankPlayer;
 import com.ddona.tank.util.Const;
 
@@ -19,7 +18,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
     private Bird mBird;
     private TankPlayer mTankPlayer;
     private BulletManager mBulletManager;
-    private boolean isRunning = true;
+    private boolean isRunning = false;
     private final BitSet mBitSet = new BitSet(256);
     private long count;
     private BossManager mBossManager;
@@ -41,7 +40,6 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
     private void initComponents() {
         mBitSet.clear();
         mapManager = new MapManager(1);
-        isRunning = true;
         mBird = new Bird(
                 12 * Const.ITEM_SIZE,
                 24 * Const.ITEM_SIZE,
@@ -52,6 +50,10 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
         mBulletManager = new BulletManager(mapManager);
         mBossManager = new BossManager();
         new Thread(this).start();
+    }
+
+    public void startGame() {
+        isRunning = true;
     }
 
     @Override
@@ -99,6 +101,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
                     repaint();
                 }
                 mBulletManager.moveAllBullets();
+                mBossManager.moveAllBosses();
             }
             try {
                 Thread.sleep(7);
@@ -121,7 +124,7 @@ public class MapPanel extends JPanel implements KeyListener, Runnable {
         } else if (mBitSet.get(KeyEvent.VK_LEFT)) {
             mTankPlayer.moveTank(Const.LEFT_ORIENT);
         } else if (mBitSet.get(KeyEvent.VK_RIGHT)) {
-            mTankPlayer.moveTank(Const.RIGH_ORIENT);
+            mTankPlayer.moveTank(Const.RIGHT_ORIENT);
         }
         if (mBitSet.get(KeyEvent.VK_SPACE)) {
             if (mTankPlayer.isCanFire()) {

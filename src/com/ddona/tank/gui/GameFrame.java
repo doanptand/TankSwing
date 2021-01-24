@@ -25,6 +25,7 @@ public class GameFrame extends JFrame {
     public void showGame() {
         mMainPanel.setVisible(true);
         mSettingsPanel.setVisible(false);
+        mMainPanel.startGame();
     }
 
     public void showSettings() {

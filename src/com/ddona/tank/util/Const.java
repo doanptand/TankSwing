@@ -18,7 +18,7 @@ public class Const {
     public static final int UP_ORIENT = 0;
     public static final int DOWN_ORIENT = 1;
     public static final int LEFT_ORIENT = 2;
-    public static final int RIGH_ORIENT = 3;
+    public static final int RIGHT_ORIENT = 3;
     public static final int TANK_ID = 1;
     public static final int BOSS_ID = -1;
 
