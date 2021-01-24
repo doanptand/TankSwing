@@ -34,6 +34,8 @@ public class TankPlayer extends TankObject {
     public void moveTank(int orient) {
         if (this.orient != orient) {
             this.orient = orient;
+            x = (x + Const.ITEM_SIZE / 2) / Const.ITEM_SIZE * Const.ITEM_SIZE;
+            y = (y + Const.ITEM_SIZE / 2) / Const.ITEM_SIZE * Const.ITEM_SIZE;
             this.icon = ImageMgr.arrPlayerImages.get(this.orient);
         }
         switch (this.orient) {
